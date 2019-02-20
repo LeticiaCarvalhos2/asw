@@ -17,17 +17,20 @@ public class Cliente {
         Scanner teclado = new Scanner(System.in);
         PrintStream saida = new PrintStream(cliente.getOutputStream());
         
-        //Cliente digita mensagem
-        System.out.println("Selecione\n 1 - Papel \n 2 - Pedra \n 3 - Tesoura");
-        saida.println(teclado.nextLine());
+        //Cliente digita escolha de jogada
+        int escolha = 4;
+	      do {
+	        System.out.println("Selecione\n 0 - Papel \n 1 - Pedra \n 2 - Tesoura");
+	        escolha = Integer.parseInt(teclado.nextLine()); 
+	      }while(escolha < 0 || escolha >= 3); 
+	        saida.println(escolha);
 
-        // Recebendo dados
+        // Recebendo escolha da máquina
         Scanner msg = new Scanner(cliente.getInputStream());
         System.out.println(msg.nextLine());
-        
+        msg = new Scanner(cliente.getInputStream());
         System.out.println(msg.nextLine());
         
-        saida.println("Cliente Recebeu");
         
         saida.close();
         teclado.close();

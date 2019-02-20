@@ -18,7 +18,7 @@ public class Cliente {
         PrintStream saida = new PrintStream(cliente.getOutputStream());
         
         //Cliente digita mensagem
-        System.out.println("Digite sua mensagem");
+        System.out.println("Selecione\n 1 - Papel \n 2 - Pedra \n 3 - Tesoura");
         saida.println(teclado.nextLine());
 
         // Recebendo dados

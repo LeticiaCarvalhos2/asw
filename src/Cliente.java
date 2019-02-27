@@ -28,10 +28,10 @@ public class Cliente {
         // Recebendo escolha da máquina
         Scanner msg = new Scanner(cliente.getInputStream());
         System.out.println(msg.nextLine());
-        msg = new Scanner(cliente.getInputStream());
+        
         System.out.println(msg.nextLine());
         
-        
+        msg.close();
         saida.close();
         teclado.close();
         cliente.close();

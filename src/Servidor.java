@@ -1,4 +1,3 @@
-// ESTA COM ERRO
 
 import java.io.IOException;
 import java.io.PrintStream;
@@ -35,41 +34,41 @@ public class Servidor {
 	        
 	        //Enviando dados
 	        PrintStream saida = new PrintStream(cliente.getOutputStream());
+	        //PrintStream saida = new PrintStream(cliente.getOutputStream());
 	        if(escolhaMaquina == 0) {
-	        	saida.println("Máquina jogou Papel\\n");
-	        	saida = new PrintStream(cliente.getOutputStream());
+	        	saida.println("Máquina jogou Papel");
+	        	
 				if(escolhido == escolhaMaquina) {
-					saida.println("Empate\n");
+					saida.println("Empate");
 				}else if(escolhido == 2) {
-					saida.println("Vitória\n");
+					saida.println("Vitória");
 				}
 				else if (escolhido == 1){
-					saida.println("Derrota\n");
+					saida.println("Derrota");
 				}
 			}else if(escolhaMaquina == 1) {
-				saida.println("Máquina jogou Pedra\n");
-				saida = new PrintStream(cliente.getOutputStream());
+				saida.println("Máquina jogou Pedra");
 				if(escolhido == 0) {
-					saida.println("Derrota\n");
+					saida.println("Vitória");
 				}else if(escolhido == 1) {
-					saida.println("Empate\n");
+					saida.println("Empate");
 				}
 				else {
-					saida.println("Vitória\n");
+					saida.println("Derrota");
 				}
 			}else if(escolhaMaquina == 2){
-				saida.println("Máquina jogou Tesoura\n");
-				saida = new PrintStream(cliente.getOutputStream());
+				saida.println("Máquina jogou Tesoura");
 				if(escolhido == 0) {
-					saida.println("Vitória\n");
+					saida.println("Derrota");
 				}else if(escolhido == 1) {
-					saida.println("Derrota\n");
+					saida.println("Vitória");
 				}
 				else {
-					saida.println("Empate\n");
+					saida.println("Empate");
 				}
 			}
 	        
+	        saida.close();
 	        s.close();
 	        servidor.close();
 	        cliente.close();

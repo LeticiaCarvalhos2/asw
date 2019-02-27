@@ -6,7 +6,8 @@ public class Jogo {
 	
 
 	public static void main(String[] args) {		
-		int escolha = -1, escolhaMaquina = -1;
+		Opcoes escolhaJogador, escolhaMaquina;
+		int escolha = -1;
 		Scanner read = new Scanner(System.in);
 		Random rd = new Random();
 		
@@ -23,47 +24,12 @@ public class Jogo {
 			}
 		}while(escolha < 0 || escolha >= 3);
 		
-		escolhaMaquina = rd.nextInt(3);
+		escolhaJogador = Opcoes.getOpcoes(escolha);
+		escolhaMaquina = Opcoes.getOpcoes(rd.nextInt(3));
 		
-		//Maquina Pedra
-		if(escolhaMaquina == 0) {
-			System.out.println("Máquina jogou Pedra\n");
-			if(escolha == 0) {
-				System.out.println("Empate\n");
-			}else if(escolha == 1) {
-				System.out.println("Vitória\n");
-			}
-			else {
-				System.out.println("Derrota\n");
-			}
-		//Maquina Papel
-		}else if(escolhaMaquina == 1) {
-			System.out.println("Máquina jogou Papel\n");
-			if(escolha == 0) {
-				System.out.println("Derrota\n");
-			}else if(escolha == 1) {
-				System.out.println("Empate\n");
-			}
-			else {
-				System.out.println("Vitória\n");
-			}
-		//Maquina Tesoura
-		}else {
-			System.out.println("Máquina jogou Tesoura\n");
-			if(escolha == 0) {
-				System.out.println("Vitória\n");
-			}else if(escolha == 1) {
-				System.out.println("Derrota\n");
-			}
-			else {
-				System.out.println("Empate\n");
-			}
-		}
-		
-		
+		System.out.println(escolhaMaquina);
+		System.out.println(Opcoes.ganhaDe(escolhaJogador, escolhaMaquina));
 		
 		read.close();
-
 	}
-
 }

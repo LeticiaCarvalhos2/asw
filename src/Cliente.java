@@ -18,7 +18,7 @@ public class Cliente {
         PrintStream saida = new PrintStream(cliente.getOutputStream());
         
         //Cliente digita escolha de jogada
-        int escolha = 4;
+        int escolha = -1;
 	      do {
 	        System.out.println("Selecione\n 0 - Papel \n 1 - Pedra \n 2 - Tesoura");
 	        escolha = Integer.parseInt(teclado.nextLine()); 

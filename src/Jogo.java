@@ -25,7 +25,7 @@ public class Jogo {
 		escolhaMaquina = Opcao.getOpcao(rd.nextInt(3));
 
 		System.out.println(escolhaMaquina);
-		System.out.println(Opcao.ganhaDe(escolhaJogador, escolhaMaquina));
+		System.out.println(FormatadorResultado.formatar(Opcao.comparar(escolhaJogador, escolhaMaquina)));
 
 		read.close();
 	}

@@ -5,15 +5,15 @@ public enum Opcao {
 		return Opcao.values()[codigo];
 	}
 
-	public static String ganhaDe(Opcao jogador, Opcao maquina) {
-		if (jogador == maquina) {
-			return "Empate";
-		} else if ((jogador == Opcao.PEDRA && maquina == Opcao.TESOURA)
-				|| (jogador == Opcao.TESOURA && maquina == Opcao.PAPEL)
-				|| (jogador == Opcao.PAPEL && maquina == Opcao.PEDRA)) {
-			return "Venceu";
+	public static int comparar(Opcao opc1, Opcao opc2) {
+		if (opc1 == opc2) {
+			return 0;
+		} else if ((opc1 == Opcao.PEDRA && opc2 == Opcao.TESOURA)
+				|| (opc1 == Opcao.TESOURA && opc2 == Opcao.PAPEL)
+				|| (opc1 == Opcao.PAPEL && opc2 == Opcao.PEDRA)) {
+			return +1;
 		} else {
-			return "Perdeu";
+			return -1;
 		}
 	}
 

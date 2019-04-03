@@ -27,9 +27,8 @@ public class Cliente {
 
 		// Recebendo escolha da máquina
 		Scanner msg = new Scanner(cliente.getInputStream());
-		System.out.println(msg.nextLine());
-
-		System.out.println(msg.nextLine());
+		System.out.println(Formatador.escolhaMaquina(Opcao.valueOf(msg.nextLine())));
+		System.out.println(Formatador.resultado(Integer.parseInt(msg.nextLine())));
 
 		msg.close();
 		saida.close();

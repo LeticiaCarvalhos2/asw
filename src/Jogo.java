@@ -24,7 +24,7 @@ public class Jogo {
 				escolhaMaquina = Opcao.getOpcao(new Random().nextInt(3));
 		
 		System.out.println(escolhaMaquina);
-		System.out.println(FormatadorResultado.formatar(
+		System.out.println(Formatador.resultado(
 				Opcao.comparar(escolhaJogador, escolhaMaquina)));
 
 		scanner.close();

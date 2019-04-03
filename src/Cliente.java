@@ -21,13 +21,22 @@ public class Cliente {
 
 			int opcaoInt;
 			do {
-				System.out.println("Selecione\n 0 - Pedra \n 1 - Papel\n 2 - Tesoura");
+				System.out.println("Escolha uma opção:");
+				for (Opcao o : Opcao.values()) {
+					System.out.printf("%d: %s\n", o.ordinal(), o);
+				}
 				opcaoInt = Integer.parseInt(leitorTeclado.nextLine());
-			} while (opcaoInt < 0 || opcaoInt >= 3);
+				System.out.println();
+			} while (opcaoInt < 0 || opcaoInt >= Opcao.values().length);
 
-			saidaServidor.println(Opcao.valueOf(opcaoInt));
+			Opcao opcaoJogador = Opcao.valueOf(opcaoInt);
+			
+			saidaServidor.println(opcaoJogador);
+			
+			Opcao opcaoMaquina = Opcao.valueOf(leituraServidor.nextLine());
 
-			System.out.println(Formatador.escolhaMaquina(Opcao.valueOf(leituraServidor.nextLine())));
+			System.out.printf("Servidor: jogador %s, maquina %s\n", opcaoJogador, opcaoMaquina);
+			
 			System.out.println(Formatador.resultado(Integer.parseInt(leituraServidor.nextLine())));
 		}
 	}

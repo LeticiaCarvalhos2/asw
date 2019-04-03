@@ -1,4 +1,5 @@
 package servidor;
+
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -11,10 +12,14 @@ import servidor.bot.EstrategiaBot;
 
 public class Servidor extends Thread implements Closeable {
 
-	private final ServerSocket serverSocket;
+	private final JogoModel jogoModel;
 	private final EstrategiaBot estrategiaBot;
+	
+	private final ServerSocket serverSocket;
 
-	public Servidor(int porta, EstrategiaBot estrategiaBot) throws IOException {
+	public Servidor(int porta, JogoModel jogoModel,
+			EstrategiaBot estrategiaBot) throws IOException {
+		this.jogoModel = jogoModel;
 		this.estrategiaBot = estrategiaBot;
 		
 		System.out.println("Servidor: iniciando");
@@ -38,8 +43,11 @@ public class Servidor extends Thread implements Closeable {
 			System.out.printf("Servidor: jogador %s, maquina %s\n",
 					opcaoJogador, opcaoMaquina);
 
+			jogoModel.escolherOpcao(opcaoJogador);
+			jogoModel.escolherOpcao(opcaoMaquina);
+			
 			saidaJogador.println(opcaoMaquina);
-			saidaJogador.println(Opcao.comparar(opcaoJogador, opcaoMaquina));
+			saidaJogador.println(jogoModel.calcularResultado());
 
 		} catch (IOException e) {
 			throw new RuntimeException(e);

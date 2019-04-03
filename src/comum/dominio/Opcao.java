@@ -1,4 +1,5 @@
 package comum.dominio;
+
 public enum Opcao {
 	PEDRA, PAPEL, TESOURA;
 

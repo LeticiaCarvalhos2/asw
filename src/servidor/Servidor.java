@@ -4,17 +4,21 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Random;
 import java.util.Scanner;
 
 import comum.dominio.Opcao;
+import servidor.bot.EstrategiaBot;
 
 public class Servidor extends Thread implements Closeable {
 
 	private final ServerSocket serverSocket;
+	private final EstrategiaBot estrategiaBot;
 
-	public Servidor(int porta) throws IOException {
+	public Servidor(int porta, EstrategiaBot estrategiaBot) throws IOException {
+		this.estrategiaBot = estrategiaBot;
+		
 		System.out.println("Servidor: iniciando");
+		
 		serverSocket = new ServerSocket(porta);
 	}
 
@@ -29,7 +33,7 @@ public class Servidor extends Thread implements Closeable {
 				cliente.getInetAddress().getHostAddress());
 
 			Opcao opcaoJogador = Opcao.valueOf(leitorJogador.nextLine()),
-					opcaoMaquina = Opcao.valueOf(new Random().nextInt(3));
+					opcaoMaquina = estrategiaBot.jogar();
 
 			System.out.printf("Servidor: jogador %s, maquina %s\n",
 					opcaoJogador, opcaoMaquina);

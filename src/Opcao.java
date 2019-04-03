@@ -1,7 +1,7 @@
 public enum Opcao {
 	PEDRA, PAPEL, TESOURA;
 
-	public static Opcao getOpcao(int codigo) {
+	public static Opcao valueOf(int codigo) {
 		return Opcao.values()[codigo];
 	}
 

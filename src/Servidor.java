@@ -21,8 +21,8 @@ public class Servidor {
 				System.out.println("Servidor: conexão de cliente em " + cliente.getInetAddress().getHostAddress());
 				
 				try (Scanner leitorJogador = new Scanner(cliente.getInputStream())) {
-					Opcao opcaoJogador = Opcao.getOpcao(leitorJogador.nextInt());
-					Opcao opcaoMaquina = Opcao.getOpcao(new Random().nextInt(3));
+					Opcao opcaoJogador = Opcao.valueOf(leitorJogador.nextLine());
+					Opcao opcaoMaquina = Opcao.valueOf(new Random().nextInt(3));
 					
 					System.out.printf("Servidor: jogador %s, maquina %s\n", opcaoJogador, opcaoMaquina);
 					

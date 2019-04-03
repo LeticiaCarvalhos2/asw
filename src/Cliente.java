@@ -18,13 +18,13 @@ public class Cliente {
 			try (Scanner leitorTeclado = new Scanner(System.in);
 					PrintStream saidaServidor = new PrintStream(cliente.getOutputStream())) {
 				
-				int escolha = -1;
+				int opcaoInt;
 				do {
 					System.out.println("Selecione\n 0 - Pedra \n 1 - Papel\n 2 - Tesoura");
-					escolha = Integer.parseInt(leitorTeclado.nextLine());
-				} while (escolha < 0 || escolha >= 3);
+					opcaoInt = Integer.parseInt(leitorTeclado.nextLine());
+				} while (opcaoInt < 0 || opcaoInt >= 3);
 
-				saidaServidor.println(escolha);
+				saidaServidor.println(Opcao.valueOf(opcaoInt));
 				
 				try (Scanner msg = new Scanner(cliente.getInputStream())) {
 					System.out.println(Formatador.escolhaMaquina(Opcao.valueOf(msg.nextLine())));

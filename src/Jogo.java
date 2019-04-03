@@ -20,8 +20,8 @@ public class Jogo {
 			}
 		} while (escolha < 0 || escolha >= 3);
 
-		Opcao escolhaJogador = Opcao.getOpcao(escolha),
-				escolhaMaquina = Opcao.getOpcao(new Random().nextInt(3));
+		Opcao escolhaJogador = Opcao.valueOf(escolha),
+				escolhaMaquina = Opcao.valueOf(new Random().nextInt(3));
 		
 		System.out.println(escolhaMaquina);
 		System.out.println(Formatador.resultado(

@@ -10,25 +10,25 @@ import java.util.Scanner;
 public class Servidor {
 
 	public static void main(String[] args) throws UnknownHostException, IOException {
+		System.out.println("Servidor: iniciando");
+		
 		int porta = 3233;
 		
-		System.out.println("Servidor");
-		
 		try (ServerSocket servidor = new ServerSocket(porta)) {
-			System.out.println("Porta " + porta + " aberta!");
+			System.out.println("Servidor: ouvindo porta " + porta);
 			
 			try (Socket cliente = servidor.accept()) {
-				System.out.println("Nova conexão com o cliente " + cliente.getInetAddress().getHostAddress());
+				System.out.println("Servidor: conexão de cliente em " + cliente.getInetAddress().getHostAddress());
 				
 				try (Scanner leitorJogador = new Scanner(cliente.getInputStream())) {
 					Opcao opcaoJogador = Opcao.getOpcao(leitorJogador.nextInt());
-					
 					Opcao opcaoMaquina = Opcao.getOpcao(new Random().nextInt(3));
-					System.out.println(opcaoMaquina);
 					
-					try (PrintStream saida = new PrintStream(cliente.getOutputStream())) {
-						saida.println(opcaoMaquina);
-						saida.println(Opcao.comparar(opcaoJogador, opcaoMaquina));
+					System.out.printf("Servidor: jogador %s, maquina %s\n", opcaoJogador, opcaoMaquina);
+					
+					try (PrintStream saidaJogador = new PrintStream(cliente.getOutputStream())) {
+						saidaJogador.println(opcaoMaquina);
+						saidaJogador.println(Opcao.comparar(opcaoJogador, opcaoMaquina));
 					}
 				}
 			}

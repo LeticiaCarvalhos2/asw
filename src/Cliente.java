@@ -1,16 +1,12 @@
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class Cliente {
 
-	public static void main(String[] args) throws UnknownHostException, IOException {
+	public Cliente(String endereco, int porta) throws IOException {
 		System.out.println("Cliente: iniciando");
-
-		String endereco = "localhost";
-		int porta = 3233;
 
 		try (Socket cliente = new Socket(endereco, porta);
 				Scanner leitorTeclado = new Scanner(System.in);
@@ -21,7 +17,7 @@ public class Cliente {
 
 			int opcaoInt;
 			do {
-				System.out.println("Escolha uma opção:");
+				System.out.println("Cliente: escolha uma opção:");
 				for (Opcao o : Opcao.values()) {
 					System.out.printf("%d: %s\n", o.ordinal(), o);
 				}
@@ -35,9 +31,10 @@ public class Cliente {
 			
 			Opcao opcaoMaquina = Opcao.valueOf(leituraServidor.nextLine());
 
-			System.out.printf("Servidor: jogador %s, maquina %s\n", opcaoJogador, opcaoMaquina);
+			System.out.printf("Cliente: jogador %s, maquina %s\n", opcaoJogador, opcaoMaquina);
 			
 			System.out.println(Formatador.resultado(Integer.parseInt(leituraServidor.nextLine())));
 		}
 	}
+
 }

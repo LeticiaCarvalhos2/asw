@@ -1,3 +1,6 @@
+package cliente.formatacao;
+import comum.dominio.Opcao;
+
 public class Formatador {
 
 	public static String resultado(int comparacao) {

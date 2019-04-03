@@ -1,7 +1,11 @@
+package cliente;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
+
+import cliente.formatacao.Formatador;
+import comum.dominio.Opcao;
 
 public class Cliente {
 

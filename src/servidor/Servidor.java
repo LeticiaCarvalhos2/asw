@@ -1,3 +1,4 @@
+package servidor;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -5,6 +6,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Random;
 import java.util.Scanner;
+
+import comum.dominio.Opcao;
 
 public class Servidor extends Thread implements Closeable {
 

@@ -1,4 +1,8 @@
+package main;
 import java.io.IOException;
+
+import cliente.Cliente;
+import servidor.Servidor;
 
 public class RodarServidorECliente {
 

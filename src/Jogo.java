@@ -4,15 +4,14 @@ import java.util.Scanner;
 public class Jogo {
 
 	public static void main(String[] args) {
-		Opcao escolhaJogador, escolhaMaquina;
+		Scanner scanner = new Scanner(System.in);
+		
 		int escolha = -1;
-		Scanner read = new Scanner(System.in);
-		Random rd = new Random();
-
+		
 		do {
 			try {
 				System.out.print("Escolha\n0 - Pedra\n1 - Papel\n2 - Tesoura\n\n> ");
-				escolha = Integer.parseInt(read.nextLine());
+				escolha = Integer.parseInt(scanner.nextLine());
 				if (escolha < 0 || escolha >= 3) {
 					System.out.println("Numero incorreto\n");
 				}
@@ -21,12 +20,13 @@ public class Jogo {
 			}
 		} while (escolha < 0 || escolha >= 3);
 
-		escolhaJogador = Opcao.getOpcao(escolha);
-		escolhaMaquina = Opcao.getOpcao(rd.nextInt(3));
-
+		Opcao escolhaJogador = Opcao.getOpcao(escolha),
+				escolhaMaquina = Opcao.getOpcao(new Random().nextInt(3));
+		
 		System.out.println(escolhaMaquina);
-		System.out.println(FormatadorResultado.formatar(Opcao.comparar(escolhaJogador, escolhaMaquina)));
+		System.out.println(FormatadorResultado.formatar(
+				Opcao.comparar(escolhaJogador, escolhaMaquina)));
 
-		read.close();
+		scanner.close();
 	}
 }

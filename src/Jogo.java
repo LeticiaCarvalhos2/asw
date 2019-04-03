@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Jogo {
 
 	public static void main(String[] args) {
-		Opcoes escolhaJogador, escolhaMaquina;
+		Opcao escolhaJogador, escolhaMaquina;
 		int escolha = -1;
 		Scanner read = new Scanner(System.in);
 		Random rd = new Random();
@@ -21,11 +21,11 @@ public class Jogo {
 			}
 		} while (escolha < 0 || escolha >= 3);
 
-		escolhaJogador = Opcoes.getOpcoes(escolha);
-		escolhaMaquina = Opcoes.getOpcoes(rd.nextInt(3));
+		escolhaJogador = Opcao.getOpcao(escolha);
+		escolhaMaquina = Opcao.getOpcao(rd.nextInt(3));
 
 		System.out.println(escolhaMaquina);
-		System.out.println(Opcoes.ganhaDe(escolhaJogador, escolhaMaquina));
+		System.out.println(Opcao.ganhaDe(escolhaJogador, escolhaMaquina));
 
 		read.close();
 	}

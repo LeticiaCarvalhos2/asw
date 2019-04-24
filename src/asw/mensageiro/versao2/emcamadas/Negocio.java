@@ -11,12 +11,16 @@ public class Negocio {
 		this.dados = dados;
 	}
 	
-	public boolean criar(String conteudo, String nomeMsg) {
+	public void criar(String conteudo, String nomeMsg) throws MensagemInvalidaException, ErroInesperadoException{
+			
 		try {
-			dados.criarArquivo(conteudo, nomeMsg);
-			return true;
+			if(conteudo.length() <= 30) {
+				dados.criarArquivo(conteudo, nomeMsg);
+			}else {	
+				throw new MensagemInvalidaException(conteudo.length());
+			}
 		} catch (IOException e) {
-			return false;
+			throw new ErroInesperadoException(e);
 		}
 	}
 	

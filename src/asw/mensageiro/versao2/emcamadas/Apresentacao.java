@@ -89,11 +89,15 @@ public class Apresentacao {
 	private void criar(Scanner scanner) {
 		System.out.println("Digite a mensagem e termine com Enter");
 		String conteudo = scanner.nextLine();
-		if(!negocio.criar(conteudo, nomeMsg)) {
+		try {
+			negocio.criar(conteudo, nomeMsg);
+			System.out.println("Mensagem criada com Sucesso!");
+		}
+		catch(ErroInesperadoException e) {
 			System.err.println("Erro ao criar Mensagem!");
 		}
-		else {
-			System.out.println("Mensagem criada com Sucesso!");
+		catch(MensagemInvalidaException e) {
+			System.err.println("Tamanho da Mensagem excedido! Limite é de 30 caracteres!\nTamanho da sua Mensagem: " + e.getTamanho());
 		}
 	}
 

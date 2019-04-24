@@ -40,13 +40,58 @@ public class Apresentacao {
 		this.nomeMsg = nomeMsg;
 	}
 	
-	
-	
-	public String getComando() {
-		return comando;
+	public void menu() {
+		try (Scanner scanner = new Scanner(System.in)) {
+			do {			
+				lerTeclado();
+
+				switch (comando) {
+				case "listar":
+					String[] lista = negocio.listar();
+					if(lista.length > 0) {
+						for (String mensagem : negocio.listar()) {
+							System.out.println(mensagem);
+						}
+					}
+					else {
+						System.err.println("Lista Vazia!");
+					}
+					break;
+
+				case "criar":
+					System.out.println("Digite a mensagem e termine com Enter");
+					String conteudo = scanner.nextLine();
+					if(!negocio.criar(conteudo, nomeMsg)) {
+						System.err.println("Erro ao criar Mensagem!");
+					}
+					else {
+						System.out.println("Mensagem criada com Sucesso!");
+					}
+					break;
+
+				case "ler":
+					System.out.println(negocio.ler(nomeMsg));
+					break;
+
+				case "excluir":
+					if(!negocio.deletar(nomeMsg)) {
+						System.err.println("Não foi possível remover a Mensagem!");
+					}else {
+						System.out.println("Mensagem removida com Sucesso!");
+					}
+					break;
+
+				case "sair":
+					break;
+
+				default:
+					System.err.print("Comando invalido");
+					System.out.println();
+				}
+
+			} while (comando == null || !comando.equals("sair"));
+		}
 	}
-	public String getNomeMsg() {
-		return nomeMsg;
-	}
+	
 	//private void apresentacaoLerteclado() {
 }

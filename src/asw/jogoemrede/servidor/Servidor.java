@@ -1,4 +1,4 @@
-package servidor;
+package asw.jogoemrede.servidor;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -7,8 +7,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-import comum.dominio.Opcao;
-import servidor.bot.EstrategiaBot;
+import asw.jogoemrede.comum.dominio.Opcao;
+import asw.jogoemrede.servidor.bot.EstrategiaBot;
 
 public class Servidor extends Thread implements Closeable {
 

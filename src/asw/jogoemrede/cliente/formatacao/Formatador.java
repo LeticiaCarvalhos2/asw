@@ -1,5 +1,5 @@
-package cliente.formatacao;
-import comum.dominio.Opcao;
+package asw.jogoemrede.cliente.formatacao;
+import asw.jogoemrede.comum.dominio.Opcao;
 
 public class Formatador {
 

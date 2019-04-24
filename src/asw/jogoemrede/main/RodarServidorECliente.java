@@ -1,10 +1,10 @@
-package main;
+package asw.jogoemrede.main;
 import java.io.IOException;
 
-import cliente.Cliente;
-import servidor.JogoModel;
-import servidor.Servidor;
-import servidor.bot.EstrategiaBotAleatoria;
+import asw.jogoemrede.cliente.Cliente;
+import asw.jogoemrede.servidor.JogoModel;
+import asw.jogoemrede.servidor.Servidor;
+import asw.jogoemrede.servidor.bot.EstrategiaBotAleatoria;
 
 public class RodarServidorECliente {
 

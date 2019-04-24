@@ -1,6 +1,6 @@
-package servidor;
+package asw.jogoemrede.servidor;
 
-import comum.dominio.Opcao;
+import asw.jogoemrede.comum.dominio.Opcao;
 
 public class JogoModel {
 	

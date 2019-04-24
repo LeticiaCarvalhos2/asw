@@ -1,8 +1,8 @@
-package servidor.bot;
+package asw.jogoemrede.servidor.bot;
 
 import java.util.Random;
 
-import comum.dominio.Opcao;
+import asw.jogoemrede.comum.dominio.Opcao;
 
 public class EstrategiaBotAleatoria implements EstrategiaBot {
 

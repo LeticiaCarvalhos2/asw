@@ -1,4 +1,4 @@
-package asw.jogoemrede.servidor;
+package asw.pedrapapeltesoura.servidor;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -7,8 +7,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-import asw.jogoemrede.comum.dominio.Opcao;
-import asw.jogoemrede.servidor.bot.EstrategiaBot;
+import asw.pedrapapeltesoura.comum.dominio.Opcao;
+import asw.pedrapapeltesoura.servidor.bot.EstrategiaBot;
 
 public class Servidor extends Thread implements Closeable {
 

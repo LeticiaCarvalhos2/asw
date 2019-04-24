@@ -1,6 +1,6 @@
-package asw.jogoemrede.servidor;
+package asw.pedrapapeltesoura.servidor;
 
-import asw.jogoemrede.comum.dominio.Opcao;
+import asw.pedrapapeltesoura.comum.dominio.Opcao;
 
 public class JogoModel {
 	

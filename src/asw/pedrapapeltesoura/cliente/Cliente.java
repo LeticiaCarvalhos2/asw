@@ -1,12 +1,12 @@
-package asw.jogoemrede.cliente;
+package asw.pedrapapeltesoura.cliente;
 
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
 
-import asw.jogoemrede.cliente.formatacao.Formatador;
-import asw.jogoemrede.comum.dominio.Opcao;
+import asw.pedrapapeltesoura.cliente.formatacao.Formatador;
+import asw.pedrapapeltesoura.comum.dominio.Opcao;
 
 public class Cliente {
 

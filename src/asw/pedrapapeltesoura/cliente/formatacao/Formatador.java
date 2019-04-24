@@ -1,5 +1,5 @@
-package asw.jogoemrede.cliente.formatacao;
-import asw.jogoemrede.comum.dominio.Opcao;
+package asw.pedrapapeltesoura.cliente.formatacao;
+import asw.pedrapapeltesoura.comum.dominio.Opcao;
 
 public class Formatador {
 

@@ -1,10 +1,10 @@
-package asw.jogoemrede.main;
+package asw.pedrapapeltesoura.main;
 import java.io.IOException;
 
-import asw.jogoemrede.cliente.Cliente;
-import asw.jogoemrede.servidor.JogoModel;
-import asw.jogoemrede.servidor.Servidor;
-import asw.jogoemrede.servidor.bot.EstrategiaBotAleatoria;
+import asw.pedrapapeltesoura.cliente.Cliente;
+import asw.pedrapapeltesoura.servidor.JogoModel;
+import asw.pedrapapeltesoura.servidor.Servidor;
+import asw.pedrapapeltesoura.servidor.bot.EstrategiaBotAleatoria;
 
 public class RodarServidorECliente {
 

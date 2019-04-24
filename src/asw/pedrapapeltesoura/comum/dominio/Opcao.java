@@ -1,4 +1,4 @@
-package asw.jogoemrede.comum.dominio;
+package asw.pedrapapeltesoura.comum.dominio;
 
 public enum Opcao {
 	PEDRA, PAPEL, TESOURA;

@@ -10,10 +10,7 @@ public class Programa {
 		Apresentacao apresentacao = new Apresentacao(
 				new Negocio(new Dados(diretorio)));
 		
-		apresentacao.exibirMenu();
-		
 		apresentacao.menu();
-
 	}
 
 }

@@ -12,7 +12,7 @@ public class Apresentacao {
 		this.negocio = negocio;
 	}
 	
-	public void exibirMenu() {
+	private void exibirOpcoes() {
 		System.out.println(""
 				+ "Comandos validos:\n"
 				+ "\tsair\n"
@@ -20,11 +20,10 @@ public class Apresentacao {
 				+ "\tcriar [nome-da-mensagem]\n"
 				+ "\tler [nome-da-mensagem]\n"
 				+ "\texcluir [nome-da-mensagem]\n"
-				+ "");
+				+ "");		
 	}
 	
-	public void lerTeclado() {
-		Scanner scanner = new Scanner(System.in);
+	public void lerTeclado(Scanner scanner) {		
 		System.out.print("> ");
 		String linhaLida = scanner.nextLine();
 		formatarLinhaLida(linhaLida);
@@ -41,44 +40,26 @@ public class Apresentacao {
 	}
 	
 	public void menu() {
+		exibirOpcoes();
 		try (Scanner scanner = new Scanner(System.in)) {
 			do {			
-				lerTeclado();
+				lerTeclado(scanner);
 
 				switch (comando) {
 				case "listar":
-					String[] lista = negocio.listar();
-					if(lista.length > 0) {
-						for (String mensagem : negocio.listar()) {
-							System.out.println(mensagem);
-						}
-					}
-					else {
-						System.err.println("Lista Vazia!");
-					}
+					listar();
 					break;
 
 				case "criar":
-					System.out.println("Digite a mensagem e termine com Enter");
-					String conteudo = scanner.nextLine();
-					if(!negocio.criar(conteudo, nomeMsg)) {
-						System.err.println("Erro ao criar Mensagem!");
-					}
-					else {
-						System.out.println("Mensagem criada com Sucesso!");
-					}
+					criar(scanner);
 					break;
 
 				case "ler":
-					System.out.println(negocio.ler(nomeMsg));
+					ler();
 					break;
 
 				case "excluir":
-					if(!negocio.deletar(nomeMsg)) {
-						System.err.println("Não foi possível remover a Mensagem!");
-					}else {
-						System.out.println("Mensagem removida com Sucesso!");
-					}
+					excluir();
 					break;
 
 				case "sair":
@@ -90,6 +71,41 @@ public class Apresentacao {
 				}
 
 			} while (comando == null || !comando.equals("sair"));
+		}
+	}
+
+	private void ler() {
+		System.out.println(negocio.ler(nomeMsg));
+	}
+
+	private void excluir() {
+		if(!negocio.deletar(nomeMsg)) {
+			System.err.println("Não foi possível remover a Mensagem!");
+		}else {
+			System.out.println("Mensagem removida com Sucesso!");
+		}
+	}
+
+	private void criar(Scanner scanner) {
+		System.out.println("Digite a mensagem e termine com Enter");
+		String conteudo = scanner.nextLine();
+		if(!negocio.criar(conteudo, nomeMsg)) {
+			System.err.println("Erro ao criar Mensagem!");
+		}
+		else {
+			System.out.println("Mensagem criada com Sucesso!");
+		}
+	}
+
+	private void listar() {
+		String[] lista = negocio.listar();
+		if(lista.length > 0) {
+			for (String mensagem : negocio.listar()) {
+				System.out.println(mensagem);
+			}
+		}
+		else {
+			System.err.println("Lista Vazia!");
 		}
 	}
 	

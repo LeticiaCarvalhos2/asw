@@ -24,4 +24,9 @@ public class Carta {
 		return naipe.equals(outra.naipe) && valor.equals(outra.valor);
 	}
 	
+	@Override
+	public String toString() {
+		return valor + "-de-" + naipe;
+	}
+	
 }
